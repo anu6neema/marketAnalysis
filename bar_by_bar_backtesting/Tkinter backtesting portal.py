@@ -428,7 +428,7 @@ def animate(i):
                 with open('intraday5min.csv', 'a') as f:                
                     df_test1[df_test1['TIME'] == timelist[timeCount]].to_csv(f, header=False, index =False)        
             else:
-                df_test1[df_test1['TIME'] == timelist[timeCount]].to_csv('main/intraday5min.csv', index =False) ## save csv
+                df_test1[df_test1['TIME'] == timelist[timeCount]].to_csv('intraday5min.csv', index =False) ## save csv
             if not nextBar:
                 timeCount += 1
             else:
