@@ -1,0 +1,92 @@
+<div Class="container">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 no-padding">
+    <div [hidden]="!data.entryreason" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left colorblue">
+       <h3>{{data.entryreason}}</h3>
+    </div>
+
+
+
+
+<div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 no-padding">
+<div [hidden]="entryflag" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 no-padding">
+     <img class="w100" [src]="entrysnapurl || '' "/> 
+</div>
+</div>
+    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 no-padding">      
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 font-wbold no-padding text-right">
+            <p class="no-margin">TRADE#</p>
+            <p class="no-margin">CAPITAL</p>
+            <p class="no-margin">STOCK</p>
+            <p class="no-margin">QTY </p>
+            <p class="no-margin">ENTRY </p>
+            <p class="no-margin">EXIT</p>
+            <p class="no-margin">STOP LOSS</p>
+            <p class="no-margin">NIFTY</p>
+            <p class="no-margin">SECTOR</p>
+            <p class="no-margin">ENTRY TIME</p>
+            <p class="no-margin">EXIT TIME</p>
+            <p class="no-margin">TRADE</p>
+            <p class="no-margin">RR </p>
+            <p class="no-margin">P & L</p>
+
+        </div>
+        <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 no-padding text-right">
+           <p class="no-margin">{{data.trade_num}}</p>
+           <p class="no-margin">{{data.capital}}</p>
+           <p class="no-margin">{{data.scriptname}}</p>
+           <p class="no-margin">{{data.quantity}}</p>
+           <p class="no-margin">{{data.entryprice}}</p>
+           <p class="no-margin">{{data.exitprice}}</p>
+           <p class="no-margin">{{data.slprice}}</p>
+           <p class="no-margin">{{data.nifty}}</p>
+           <p class="no-margin">{{data.sector}}</p>
+           <p class="no-margin">{{data.entrytime}}</p>
+           <p class="no-margin">{{data.exittime}}</p>
+           <p class="no-margin">{{data.tradetype}}</p>
+           <p class="no-margin">{{data.riskreward}}</p>
+           <p class="no-margin">{{data.profitloss}}</p>          
+           <!-- <p class="no-margin">{{data.efilename}}</p>  -->
+          </div>
+
+         <!--  <button mat-raised-button (click)="openDialogEdit(data)">Log Trades</button> -->
+      </div>
+      
+    </div>
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 no-padding">
+      <div [hidden]="!data.exitreason" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left colorblue">
+          <h3>{{data.exitreason}}</h3>
+      </div>
+  </div>
+  <div [hidden]="exitflag" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 no-padding">
+      <img [src]="exitsnapurl|| '' "/> 
+  </div>
+
+  <div [hidden]="!data.mistakeslearning" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left colorblue">
+          <h3>{{data.mistakeslearning}}</h3>
+  </div>
+  
+
+  </div>
+
+</div>
+<!--<p class="no-margin">
+  {{data.trade_num}}
+</p>
+<p>
+  {{data.tradedate}}
+</p>
+<p>
+  {{data.scriptname}}
+</p>
+<p>
+  {{data.profitloss}}
+</p>
+<p>
+  {{data.tradetype}}
+</p>
+<p>
+  {{data.riskreward}}
+</p>
+
+ -->

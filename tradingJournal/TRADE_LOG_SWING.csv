@@ -1,0 +1,3 @@
+﻿trade_num,efilename,exfilename,tradedate,scriptname,nifty,sector,quantity,entryprice,slprice,entryreason,entrytime,exitprice,exittime,exitreason,tradetype,riskreward,profitloss,capital,mistakeslearning,papertrade
+1,entry_test_swing_2019-01-27_11_24_13_AM.jpg,exit_test_swing_2019-01-27_11_24_13_AM.jpg,2019-01-27,test_swing,None,None,20,100,95,testse,11_24_13_AM,0,11_24_13_AM,tets,,0R,0,10000,My learnings from this trade.,False2,entry_RBL_2019-12-22_11_38_40_PM.jpg,NONE,2019-12-22,RBL,None,None,1,380,298,,11_38_40_PM,0,11_38_40_PM,NONE,,0R,0,10000,.. inverse HNS,False
+2,NONE,NONE,2019-12-22,test,None,None,0,0,0,,11_40_36_PM,0,11_40_36_PM,NONE,,0R,0,10000,My learnings from this trade.,False

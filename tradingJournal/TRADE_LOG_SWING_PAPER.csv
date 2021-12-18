@@ -1,0 +1,9 @@
+trade_num,efilename,exfilename,tradedate,scriptname,nifty,sector,quantity,entryprice,slprice,entryreason,entrytime,exitprice,exittime,exitreason,tradetype,riskreward,profitloss,capital,mistakeslearning,papertrade
+1,NONE,NONE,2020-05-18,NIFTY MAY FUT ,RED,None,75,9080,9080.0,,11_44_50_PM,8886.85,11_44_50_PM,NONE,SHORT,-1R,-14486.25,"2,00,000","Trade open currently.
+SL hit @ 9080",True
+2,NONE,NONE,2020-05-20,NIFTY MAY FUT,None,None,75,9072,8999.3,,3_57_58_PM,8999.3,3_57_58_PM,NONE,LONG,-1R,-5452.5,10000,"tsl 1 8999.30
+SL hit",True
+3,NONE,NONE,2020-05-22,NIFTY MAY FUT,None,None,75,9150,9150.0,,1_59_10_PM,9020.0,1_59_10_PM,NONE,SHORT,-1R,-9750.0,10000,"test
+sl hit @ 9150",True
+4,NONE,NONE,2020-05-27,NIFTY MAY FUT,None,None,75,9256,10070.0,test,10_18_44_AM,10070.0,10_18_44_AM,NONE,LONG,InfinityR,61050.0,100000,SL1 9010 as candle low TSL 2 9190 TSL 3 9288 @ 29may. TSL:9460.TSL9635. tsl 9780..tsl 9897. tsl 10015. tsl 10070. Sl it @10070,True
+5,NONE,NONE,2020-06-09,NIFTY JUN FUT,None,None,75,9945,10044,null,7_37_50_PM,10085,7_37_50_PM,NONE,SHORT,InfinityR,10500,,SL 10301. tsl 10044. tsl.9945..,True

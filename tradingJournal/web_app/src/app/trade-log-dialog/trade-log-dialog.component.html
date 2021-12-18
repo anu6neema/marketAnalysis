@@ -1,0 +1,70 @@
+<div class="tablePrim">
+  
+  <div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 no-padding">
+      <div  class="col-lg-10 col-md-10 col-sm-10 col-xs-10 text-left">
+          <div  class="col-lg-5 col-md-5 col-sm-5 col-xs-5 no-padding"> 
+              <h3>
+                  <button mat-raised-button (click)="openDialog()">Log Trades</button>
+                </h3>
+          </div>
+          <div  class="col-lg-7 col-md-7 col-sm-7 col-xs-7 text-left no-padding">
+              <mat-button-toggle-group #group="matButtonToggleGroup"
+              [value]="selectedVal" (change)="Toggle_change(group.value)">
+                  <mat-button-toggle value="INTRADAY">
+                    <span>Intraday</span>
+                  </mat-button-toggle>
+                  <!-- <mat-button-toggle value="POSITIONAL-CASH">
+                    <span>Positional-cash</span>
+                  </mat-button-toggle> -->
+                  <mat-button-toggle value="SWING-FNO">
+                    <span>Swing-fno</span>
+                  </mat-button-toggle>                  
+                </mat-button-toggle-group>
+            
+        </div>   
+
+      </div>
+      <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 text-left">         
+           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              
+                 <label>Paper trade </label> 
+              
+              <label class="switch marginT3">                           
+                  <input type="checkbox" [(ngModel)] = "paperFlag"
+                  (ngModelChange)="GetPaperTrdes(paperFlag)">
+                  <span class="slider round">                                  
+                  </span>
+              </label>
+           </div>
+             
+           <!--  <input type="checkbox" data-toggle="toggle" [(ngModel)] = "paperFlag"
+            (ngModelChange)="GetPaperTrdes(paperFlag)"> -->            
+          <!-- </label> -->
+      </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 card card-block height32"  >
+          <div *ngFor="let log of TradeLogs; let i= index" class="font-size12" >
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;"></div><!-- log.profitloss > 0 ? 'bg-profit' : 'bg-loss' -->
+              <div (click) = getTradeDetails(i) [class.Selected]="i == selectedRow" 
+                  class="col-lg-10 col-md-10 col-sm-10 col-xs-10 border-R10 text-center pointerC" 
+                  [class.bg-no-trade]="log.profitloss === 0"  
+                  [ngClass]="log.profitloss > 0 ? 'bg-profit':'bg-loss'">
+                <label class="font-wbold no-margin">
+                    {{log.tradedate}}
+                </label>
+                <p class="no-margin">Trade #{{log.trade_num}}</p>
+                <p class="no-margin">{{log.scriptname}}</p>
+              </div>
+              <div (click) = EditTradeDetails(i) class="col-lg-2 col-md-2 col-sm-2 col-xs-2 no-padding  margint15 text-center pointerC">
+                <i style="vertical-align:inherit" class="fa fa-edit"></i>
+              </div>         
+          </div>
+      </div>
+      <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 text-center card card-block">
+            <app-trade-detail [data] = "model_trade" ng-if="model_trade.length > 0">Loading...</app-trade-detail>                   
+        </div>
+    </div>
+   </div>
+
+</div>

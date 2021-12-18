@@ -1,0 +1,229 @@
+/* You can add global styles to this file, and also import other style files */
+/* @import "~@angular/material/prebuilt-themes/indigo-pink.css"; */
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+ 
+    button:focus {
+        outline: none;
+        border: 0;
+     }
+
+     .no-padding {
+         padding:0;
+     }
+
+     .text-right {
+         text-align:right !important;
+     }
+
+     .menu_header a {
+         color:#ececec;
+     } 
+     .menu_header{
+        background-color: #673ab7; 
+     /*    background-color: #8345a0;  */
+        width:100%;
+         padding-left: 2%; 
+         padding-top: .5%;
+        height: 8%;   
+        font-size: 22px;
+        
+       /*   margin-left:5% ;
+         margin-right:10% ; */
+       /*  font-weight: bold; */
+        color:white;  
+        /* text-align:center */
+        /* vertical-align: middle */
+}
+
+.tablePrim{   
+    /*    height: auto; */
+       /*   overflow: hidden;   */
+    /*    border: 1px solid #e2e2e2; */
+    /*    border-radius: 4px; */
+     /*   box-shadow: 2px 2px 2px 2px #e2e2e2; */
+         margin-top: 2.8%;  
+    /*    padding: 2px; */
+     /*   min-height: 900px;   */
+       position:absolute;
+       top: 50px;  
+       left:0px;
+       right:0px;
+       bottom:0px;
+       overflow-y:scroll;  
+       background-color: #f5f4f4
+      }
+.tablesec{
+       background-color: #ffffff;
+       height: auto;
+       overflow: hidden;
+     /*   border: 1px solid #e2e2e2;
+       border-radius: 4px;
+       box-shadow: 2px 2px 2px 2px #e2e2e2; */
+       box-shadow: 0 1px 3px 0 rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 2px 1px -1px rgba(0,0,0,.12);
+       margin-top: 15px !important;
+       margin: 5px;
+       padding: 5px;
+       /* min-height: 150px; */
+      }
+
+.statsLabel {
+       margin: 0;
+       /* padding: 10px 0; */
+       text-align:center;
+       font-size: 16px;
+       font-weight:500;
+}
+h5,h2,h1{
+       padding: 8px;
+       font-size: 30px;
+       color: gray;
+        text-align:center; 
+}
+
+
+.tablesec1 {
+    background-color: #ffffff;
+    /* height: auto; */
+
+    overflow: hidden;
+  /*   border: 1px solid #e2e2e2;
+    border-radius: 4px;
+    box-shadow: 2px 2px 2px 2px #e2e2e2; */
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 2px 1px -1px rgba(0,0,0,.12);
+    /* margin-top: 15px !important; */
+    margin: 5px;
+    padding: 1px;
+    /*  min-height: 500px;  */
+   
+}
+
+.font-size16
+{
+    font-size: 16px !important;
+}
+
+.fontsize12{
+    font-size: 12px !important;
+}
+
+.paddingtop3 {
+    padding-top:3% !important;  
+}
+
+.exit-background{
+    background-color: rgb(255, 154, 137);
+}
+
+.entry-background {
+    background-color: #9adb86
+}
+
+.market-background {
+    background-color:white;
+}
+
+.background-black {
+    background-color: rgb(167, 164, 164);
+}
+.font-white{
+    color:white;
+}
+
+.text-center{
+    text-align:center !important;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+
+.ng-valid[required], .ng-valid.required  {
+    border-left: 5px solid #42A948; /* green */
+  }
+  
+  .ng-invalid:not(form)  {
+    border-left: 5px solid #a94442; /* red */
+  }
+
+  .font-size30{
+      font-size: 30px !important;
+  }
+  .fontsize16{
+    font-size: 16px !important;
+  }
+.text-left{
+    text-align: left !important;
+}
+.no-margin{
+    margin:0 !important;
+}
+.border-R10 {
+    border-radius:10px !important;
+}
+  .font-wbold{
+      font-weight:bold !important;
+  }
+  .float-right{
+      float:right !important;
+  }
+  .float-left{
+    float:left !important;
+}
+
+.bg-profit{
+    background-color: #c6ffcb;
+}
+.bg-loss {
+    background-color: #ff8671;
+}
+
+.bg-no-trade {
+    background-color: #fdf479;
+}
+
+.pointerC{
+    cursor: pointer;
+}
+.backgroundblack{
+    background-color:#4a4a4a !important
+}
+.colorw {
+    color:white;
+}
+.font-size11{
+    font-size: 11px;
+}
+
+ .height125{
+    height:125px !important;
+} 
+.height100{
+    height:100% !important;
+}
+
+.paddingtop4{
+    padding-top:4% !important;
+}
+.w100 {
+    width:100% !important;
+}
+.colorblue{
+    color:cadetblue;
+}
+
+.rrforminput{
+    height: 90px;
+    border-radius: 30px;
+    text-align: center;
+    font-size: 50px;
+}
+
+.height32{
+    height:32em !important;
+    overflow-y:scroll !important;
+}
+
+.margint15{
+    margin-top:15% !important;
+}

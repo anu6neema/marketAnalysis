@@ -1,0 +1,148 @@
+<div class="tablePrim">
+<!-- <div class="menu_header">
+<a  routerLink= "/home" routerLinkActive ="Active"> Home </a>
+</div> -->
+
+
+    <div style="padding: 3% 5%;" class="container-fluid">
+            <div class="row">
+                    1. total trades taken,
+                    2. loosing trades
+                    3. Winning trades
+                    4 win %
+                    5. avg RR for wins
+                    6. % of long trades
+                    7. % of short trades.
+                    8. long win %
+                    9 short win %
+                    
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 no-padding">                            
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 no-padding">                                
+                                            <div class="row">
+                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                            <div class="tablesec1" style="height:350px">    
+                                                                    <label class="statsLabel col-lg-12 col-md-12 col-sm-12 col-xs-12">Wins vs Losses</label> 
+                                                                   
+                                                                    <canvas baseChart
+                                                                    [data]="pieChartData"
+                                                                    [labels]="pieChartLabels"
+                                                                    [chartType]="pieChartType"
+                                                                    [colors]="pieChartColors"
+                                                                    (chartHover)="chartHovered($event)"
+                                                                    (chartClick)="chartClicked($event)"></canvas>
+   <!-- <div *ngIf="csi_dataResponse" class="app-bar-chart" [dataSets]="csi_dataResponse"></div>   -->                                                                      
+                                                                    
+                                                                </div>  
+                                                    </div>    
+                                            
+                                            </div>               
+
+                            </div> 
+                                    
+                                                      
+                            
+                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 no-padding">
+                                    <div class="tablesec1" style="height:350px">
+                                                <label class="statsLabel col-lg-12 col-md-12 col-sm-12 col-xs-12">Daily profits/losses</label> 
+                                                <div style="display: block">
+                                                                <canvas baseChart
+                                                                        [datasets]="barChartData"
+                                                                        [labels]="barChartLabels"
+                                                                        [options]="barChartOptions"
+                                                                        [legend]="barChartLegend"
+                                                                        [chartType]="barChartType"
+                                                                        [colors]="barChartColors"
+                                                                        ></canvas>
+                                                              </div>
+                                         <!--    <label class="statsLabel col-lg-12 col-md-12 col-sm-12 col-xs-12">Google Maps</label> 
+                                            <h2 style="text-align:center;"><button style="font-size:smaller" mat-fab color="accent">{{plantOeeAvgResponse.avgYield}}</button></h2>                 
+                                            <label class="statsLabel col-lg-12 col-md-12 col-sm-12 col-xs-12">Global Yield</label> 
+                                            <h2 style="text-align:center;"><button style="font-size:smaller" mat-fab disabled>{{plantOeeAvgResponse.avgYield}}</button></h2>                 
+                                            <label class="statsLabel col-lg-12 col-md-12 col-sm-12 col-xs-12">Global Yield</label> 
+                                            <h2 style="text-align:center;"><button style="font-size:smaller" mat-fab disabled>{{plantOeeAvgResponse.avgYield}}</button></h2>                 
+                                            <label class="statsLabel col-lg-12 col-md-12 col-sm-12 col-xs-12">Global Yield</label> 
+                                            <h2 style="text-align:center;"><button style="font-size:smaller" mat-fab disabled>{{plantOeeAvgResponse.avgYield}}</button></h2>  
+                                                 style="width:300px;height:200px;padding-left:4em"       -->
+<!-- <div style="height:403px;width:100%" id="map" [mapData]="mapdashBoardResponse" appMapsView></div>   -->                                 
+                  <!-- <div  id="map" style="height:403px;width:100%" ></div> -->
+                                     </div>
+                            </div> 
+                   
+                </div>
+            </div>   
+             <div class="row">
+                    
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 no-padding">
+                            <div class="tablesec1">
+                                <form novalidate 
+                                (ngSubmit)="SubmitDates()" #DataForm="ngForm" >
+                                <div class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <label>Start date</label>
+                                        <input type="date" 
+                                               class="form-control fontsize12" 
+                                               name="startdate"
+                                               [(ngModel)]="startdate"
+                                               required>
+                                </div> 
+                                <div class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <label>End date</label>
+                                        <input type="date" 
+                                               class="form-control fontsize12" 
+                                               name="enddate"
+                                               [(ngModel)]="enddate"
+                                               required>
+                                </div> 
+                                <div class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <label>Get traded data numbers</label>
+                                        <input type="submit" value="Submit"
+                                        [disabled]="!DataForm.form.valid"
+                                        class="form-control btn btn-success " >
+                                    </div>
+
+                                </form>
+                            </div>
+                    </div> 
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 no-padding">
+                            <div  *ngIf= "objectKeys(Trade_data).length > 0" class="tablesec1">
+                                     <!--   <h1 >Your trade records</h1> --> 
+                                     <!--     <ul>
+                                          <li *ngFor="let key of objectKeys(Trade_data)">
+                                             {{key}} : {{ Trade_data[key] }}
+                                          </li>
+                                        </ul>   -->  
+                                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 no-padding" *ngFor="let key of objectKeys(Trade_data)">
+                                                <label class="statsLabel col-lg-12 col-md-12 col-sm-12 col-xs-12"> {{key}} </label> 
+                                                <h2 style="text-align:center;">{{ Trade_data[key] }}</h2>                
+                                         </div>             
+                                        
+                            </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 no-padding">
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 text-center">
+                                        <button mat-raised-button >This Week</button>
+                                </div> <!--(click)="openDialog()"  -->
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 text-center">
+                                        <button mat-raised-button >This Month</button>
+                                </div>
+
+                    </div>
+                    
+            
+            </div> 
+         <!--    <div class="row">
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                            <div  class="tablesec1">
+                            <label class="statsLabel col-lg-12 col-md-12 col-sm-12 col-xs-12">Global Yield</label> 
+                            <h2 style="text-align:center">{{plantOeeAvgResponse.avgYield}}</h2>         
+                       
+                     </div>
+                    </div> 
+            
+            </div> -->       
+   
+    </div>
+    </div>
+
+
+
+

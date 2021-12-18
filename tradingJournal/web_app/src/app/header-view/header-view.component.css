@@ -1,0 +1,33 @@
+
+.mainHeaderpri{ 
+    outline: none;
+    border: 0;      
+    max-width:100%;
+   /*   line-height: 100px;  */
+    display: inline-flex;
+    overflow: hidden;
+    padding-bottom: 0%;
+   /*  background: #330c9e;   */
+ background: #673ab7;    
+    box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+}
+.headerTitle{    
+    float:left;
+    
+}
+
+.nofocus:focus {
+      outline: none;      
+}
+
+.hdr_btn{
+    color:white; 
+   
+  /*   font-family: Roboto, "Helvetica Neue", sans-serif !important;
+    
+    font-weight: 500; */
+}
+
+/* button {
+
+} */

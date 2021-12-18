@@ -1,0 +1,365 @@
+<div>
+  
+    <div class="container-fluid fontsize16 no-padding" >
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 no-padding">
+        <div class="no-padding">        
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 no-padding">
+            <!-- <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 no-padding text-center font-size16">
+                  LOG TRADE</div> -->
+                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 no-padding text-left">
+                    <h4 [hidden] ="paperTrade">TRADE# {{model.trade_num}} </h4>
+                    <h4 [hidden] ="!paperTrade">PAPER TRADE# {{model.trade_num}}</h4>
+                   <!--  <label>PAPER TRADE..? </label>
+                            <input [readonly]="true" type='checkbox' [(ngModel)]="paperTrade" name='papertrade'> -->
+                  </div>   
+                  <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" style="border-bottom: 3px solid #673ab7;">                           
+                    
+                    <div class= "col-lg-3 col-md-3 col-sm-3 col-xs-3 no-padding">
+                                <label>Target (_R)</label>
+                            <input type="number"
+                            step="0.01"  autocomplete="off" [(ngModel)]="risk_tgt" class="text-center"/>
+                    </div>
+                    <div class= "col-lg-3 col-md-3 col-sm-3 col-xs-3 no-padding">
+                            <label> % Risk per tade</label>
+                        <input type="number"
+                        step="0.01"  autocomplete="off" [(ngModel)]="risk_per_trade" class="text-center"/>
+                    </div>
+
+                    <div class= "col-lg-3 col-md-3 col-sm-3 col-xs-3 no-padding">
+                            <label>Abs target</label>
+                        <input type="number" 
+                        step="0.01"  autocomplete="off" [(ngModel)]="abs_tgt"  class="text-center" readonly/>
+                    </div>
+
+                    <div class= "col-lg-3 col-md-3 col-sm-3 col-xs-3 no-padding">
+                            <label>Abs SL</label>
+                        <input type="number" 
+                        step="0.01" autocomplete="off" [(ngModel)]="abs_sl"  class="text-center" readonly/>
+                    </div>
+
+                    
+                 </div>                                   
+                  
+              <form  novalidate 
+                (ngSubmit)="onSubmit()" #logForm="ngForm" enctype="multipart/form-data"> 
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <!-- <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <pre>{{logForm.value | json}}</pre>
+                            </div> -->
+                   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 no-padding">
+                       <div  class="col-lg-12 col-md-12 col-sm-12 col-xs-12 no-padding market-background text-center text-bold font-size16">
+                          
+                           
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <input type="hidden" 
+                                class="form-control" 
+                                name="trade_num"
+                                [readonly]="true"
+                                [(ngModel)]="model.trade_num"
+                                required> 
+                            </div>                           
+                        </div>
+                      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 no-padding">                       
+                            <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <label>Trade date</label>
+                                    <input type="date" 
+                                           class="form-control fontsize12" 
+                                           name="tradedate"
+                                           [(ngModel)]="model.tradedate"
+                                           required>
+                                  </div>  
+                                  <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <label>Script Name</label>
+                                    <input type="text" autocomplete="off"
+                                           class="form-control" 
+                                           name="scriptname" placeholder="Stock Name"
+                                           [(ngModel)]="model.scriptname"
+                                           required>
+                                  </div>
+
+                      </div> 
+                      
+                      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 no-padding">
+                            <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <label>NIFTY</label>
+                                    <select class="form-control" 
+                                            name="nifty"
+                                            [(ngModel)]="model.nifty"
+                                            required>
+                                      <option value="None">None</option>
+                                      <option value="GREEN">GREEN > .20% </option>
+                                      <option value="RED">RED < -.20% </option>
+                                      <option value=" RANGEBOUND">Range bound (-.10% & +.10%)</option>
+                                    </select>
+                                  </div>
+                                <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                      <label>Stock sector</label>
+                                      <select class="form-control" 
+                                            name="sector"
+                                            [(ngModel)]="model.sector"
+                                            required>
+                                          <option value="None">None</option>
+                                          <option value="UP"> Up  </option>
+                                          <option value="DDOWN">  Down  </option>   
+                                      </select>                         
+                                </div>
+                        
+
+                    </div>
+                      
+                        
+  
+                   </div>
+                   
+                    
+  
+  
+                </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+              <div  class="col-lg-12 col-md-12 col-sm-12 col-xs-12 no-padding entry-background text-center text-bold font-size16">
+                  <label>BUY</label>
+              </div>
+              
+               
+                    <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-6 no-padding">
+                        <label>Entry price</label>
+                        <input type="number" autocomplete="off"
+                               class="form-control" 
+                               name="entryprice"
+                               (change)= "Get_absolute_values()"                              
+                               [(ngModel)]="model.entryprice"
+                               >
+                      </div>
+                      <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                          <label>SL price</label>
+                          <input type="number" autocomplete="off"
+                                 class="form-control"                                   
+                                 name="slprice"     
+                                 (change)= "Get_absolute_values()"                           
+                                  [(ngModel)]="model.slprice"
+                                  required>
+                      </div> 
+                
+                <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12 no-padding">                    
+                        <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-6 no-padding">
+                            <label>Quantity</label>
+                            <input type="number" autocomplete="off"
+                                   class="form-control" 
+                                   name="quantity"
+                                   [(ngModel)]="model.quantity"
+                                   required>
+                          </div>
+                          <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <label>Entry time</label>
+                            <input type="text" autocomplete="off"
+                                   class="form-control" 
+                                   name="entrytime"
+                                  [(ngModel)]="model.entrytime"
+                                  >
+                         </div>
+                         <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12 no-padding">
+                            <label>Entry reason</label>
+                            <input type="text" autocomplete="off"
+                                   class="form-control"
+                                   name="entryreason"
+                                    [(ngModel)]="model.entryreason"
+                                    >
+                        </div>
+                        <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12 no-padding">                           
+                            <label>Trade entry</label>
+                            <input type='file' (change)="onSelectEntryFile($event)" name='entryfile'>
+                        </div>
+                    </div>
+                  
+
+
+                
+                
+              
+                      
+                      
+                      
+                           
+                        <!-- <img [src]="url" height="200"> <br/> -->
+                        
+                        
+                  </div>                
+  
+                  <div class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                      <div  class="col-lg-12 col-md-12 col-sm-12 col-xs-12 no-padding exit-background text-center text-bold font-size16">
+                          <label>SELL</label>
+                      </div>
+                      <!-- <div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                          <label>Quantity</label>
+                          <input type="text"
+                                 class="form-control">
+                        </div> -->
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <input type="hidden" 
+                            class="form-control" 
+                            name="tradetype"
+                            [readonly]="true"
+                            [(ngModel)]="model.tradetype"
+                            > 
+                        </div>
+                      
+                      <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                          <label>Exit price</label>
+                          <input type="number"       autocomplete="off"                       
+                                 class="form-control" 
+                                    name="exitprice"                                    
+                                      [(ngModel)]="model.exitprice"
+                                      >
+                        </div>
+                        <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <label>Exit time</label>
+                            <input type="text"
+                                   class="form-control"
+                                   name="exittime" autocomplete="off"
+                                      [(ngModel)]="model.exittime"
+                                      >
+                        </div> 
+                        <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <label>Exit reason</label>
+                            <input type="text" autocomplete="off"
+                                   class="form-control"
+                                   name="exitreason"                                  
+                                      [(ngModel)]="model.exitreason"
+                                      >
+                        </div> 
+                        <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12 ">                           
+                            <label>Trade exit/Complete Trade</label>
+                            <input type='file' (change)="onSelectExitFile($event)" name='exitfile'>
+                        </div>
+
+                         <!-- <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12 ">                           
+                               RR calculation here
+
+
+                            </div>  -->
+                        
+                  </div>
+  
+                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 no-padding">
+  
+                      <div class="form-group col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                          <label>Risk/Reward:</label>
+                          <input type="text"  [readonly]="true"
+                                 class="form-control font-size30 text-center font-wbold"
+                                 name="riskreward"
+                                      [(ngModel)]="model.riskreward"
+                                    >
+                        </div>
+                      <div class="form-group col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                            <label>Profit/Loss</label>
+                            <input type="text" [readonly]="true"
+                                   class="form-control form-control font-size30 text-center font-wbold"
+                                   name="profitloss"
+                                      [(ngModel)]="model.profitloss"
+                                      >
+                        </div>
+                        <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <label>Capital</label>
+                             <input type="textarea"
+                                   class="form-control" autocomplete="off"
+                                   name="capital"
+                                      [(ngModel)]="model.capital">      
+                        </div> 
+                        <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <label>Mistakes/Learnings</label>
+                            <!-- <input type="textarea"
+                                   class="form-control"
+                                   name="mistakeslearning"
+                                      [(ngModel)]="model.mistakeslearning"
+                                      > -->
+                            <textarea class="form-control"
+                            rows="4" cols="10" wrap="soft" autocomplete="off"
+                            name="mistakeslearning"
+                            (change)= "CalculateRR()"
+                               [(ngModel)]="model.mistakeslearning" required>
+                                
+                            </textarea>          
+                        </div>
+                        <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <input type="submit" value="Submit"
+                                [disabled]="!logForm.form.valid"
+                                class="form-control btn btn-success " >
+                            </div>
+                            <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <input type="button" value="Reset" (click) ="resetform()"
+                                class="form-control btn btn-info">
+                            </div>
+                            <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <span [hidden] ="isSubmitted">Trade logged!</span>
+                            </div>
+                        </div>
+  
+                  </div>
+                  <!-- <div class="form-group">
+                    <label>Language</label>
+                    <select class="form-control">
+                      <option value="">Please select a language</option>
+                    </select>
+                  </div> -->
+                 
+            </form>
+  
+          </div>
+           
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">              
+            <!-- <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 card card-block background-black text-center font-white">
+                <h4>Risk Reward:1.5</h4>
+            </div>
+            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                <h4></h4>
+            </div>
+  
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 card card-block background-black text-center font-white">
+                <h4>Profit/Loss</h4>
+            </div>
+  
+            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                <h4><label>Exit time</label>
+                  <input type="text"
+                         class="form-control"></h4>
+            </div>
+  
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 card card-block background-black text-center font-white">
+                <h4>Profit/Loss</h4>
+            </div> -->
+  
+  
+            <!-- <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 no-padding">
+                <p>
+                    Whatever I traded for the day, market condition, entry conditions, entry reason, quantity, 
+                    exit price, exit reason, stop loss price. profit/loss, sector condition, entry screenshot, 
+                    exit screenshot,
+                    trade date, trade month trade type- intraday/positional,
+                    Risk reward Ratio(Automated calculcated) 
+                    bokerage charges(entered later),
+                    Learnings, lessons and mistakes.
+                    entry time, exit time
+                </p>
+  
+            </div> -->
+             
+          </div>
+             
+              
+        </div>
+        
+  
+      </div>
+       <!-- <div  class="col-lg-12 col-md-12 col-sm-12 col-xs-12 no-padding ">
+          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 no-padding card card-block">
+              test
+          </div>
+       </div> -->
+  
+  
+    
+    </div>
+  
+  </div>
+  
